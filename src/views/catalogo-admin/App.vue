@@ -211,7 +211,7 @@ export default {
 
 <style>
 body{
-  background-color: #EAD5C3;
+  background: url("../../assets/background.png") repeat;
 }
 
 .container{

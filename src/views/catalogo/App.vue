@@ -5,10 +5,10 @@
       <div>
         <div class="titulo"> Mais vendidos </div>
         <div class="divisoria mt-2 mb-3"></div>
-        <div class="item-area">
+        <div v-if="maisVendidos.length > 0" class="item-area">
           <div class="item d-flex" v-for="maisVendido in maisVendidos" v-bind:key="maisVendido">
             <div class="item-img">
-              <img class="imagem" src="@/assets/logo.jpeg">
+              <img class="imagem" :src="maisVendido.urlImagem">
             </div>
             <div class="item-text">
               <div class="upper-item-text d-flex">
@@ -26,14 +26,17 @@
             </div>
           </div>
         </div>
+        <div v-else class="semProdutos d-flex">
+          Ops, ainda não há nenhum produto nesta categoria!
+        </div>
       </div>
       <div>
         <div class="titulo"> Roupas </div>
         <div class="divisoria mt-2 mb-3"></div>
-        <div class="item-area">
+        <div v-if="roupas.length > 0" class="item-area">
           <div class="item d-flex" v-for="roupa in roupas" v-bind:key="roupa">
             <div class="item-img">
-              <img class="imagem" src="@/assets/logo.jpeg">
+              <img class="imagem" :src="roupa.urlImagem">
             </div>
             <div class="item-text">
               <div class="upper-item-text d-flex">
@@ -51,14 +54,17 @@
             </div>
           </div>
         </div>
+        <div v-else class="semProdutos d-flex">
+          Ops, ainda não há nenhum produto nesta categoria!
+        </div>
       </div>
       <div>
         <div class="titulo"> Prendedores </div>
         <div class="divisoria mt-2 mb-3"></div>
-        <div class="item-area">
+        <div v-if="prendedores.length > 0" class="item-area">
           <div class="item d-flex" v-for="prendedor in prendedores" v-bind:key="prendedor">
             <div class="item-img">
-              <img class="imagem" src="@/assets/logo.jpeg">
+              <img class="imagem" :src="prendedor.urlImagem">
             </div>
             <div class="item-text">
               <div class="upper-item-text d-flex">
@@ -76,14 +82,17 @@
             </div>
           </div>
         </div>
+        <div v-else class="semProdutos d-flex">
+          Ops, ainda não há nenhum produto nesta categoria!
+        </div>
       </div>
       <div>
         <div class="titulo"> Acessórios </div>
         <div class="divisoria mt-2 mb-3"></div>
-        <div class="item-area">
+        <div v-if="acessorios.length > 0" class="item-area">
           <div class="item d-flex" v-for="acessorio in acessorios" v-bind:key="acessorio">
             <div class="item-img">
-              <img class="imagem" src="@/assets/logo.jpeg">
+              <img class="imagem" :src="acessorio.urlImagem">
             </div>
             <div class="item-text">
               <div class="upper-item-text d-flex">
@@ -100,6 +109,9 @@
               </div>
             </div>
           </div>
+        </div>
+        <div v-else class="semProdutos d-flex">
+          Ops, ainda não há nenhum produto nesta categoria!
         </div>
       </div>
     </div>
@@ -176,7 +188,7 @@ export default {
 
 <style>
 body{
-  background-color: #EAD5C3;
+  background: url("../../assets/background.png") repeat;
 }
 
 .container{
@@ -205,6 +217,18 @@ body{
   width: 150px;
   background-color: #78664C;
   margin-left: 10px;
+}
+
+.semProdutos{
+  padding: 1.5em;
+  font-size: 20px;
+  margin-left: 10px;
+  align-items: center;
+  color: #78664C;
+  background-color: #FDF4F5;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0px 0px 5px #78664C;
 }
 
 .item{

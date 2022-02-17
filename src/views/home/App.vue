@@ -7,11 +7,11 @@
          <h1 class="mt-3 txtCatalogo"> IR PARA O CATÁLOGO </h1>
       </a>
       <div class="redesSociais">
-        <a href="https://wa.me/message/IGVADUPR7KI3J1" class="botaoRedesSociais">
+        <a href="https://wa.me/message/IGVADUPR7KI3J1" target="_blank" class="botaoRedesSociais">
           <img class="logoRedesSociais me-2" src="../../assets/icons8-whatsapp.svg">
           <h2 class="mt-2">WhatsApp</h2>
         </a>
-        <a href="https://www.instagram.com/mimosbyliv/" class="botaoRedesSociais">
+        <a href="https://www.instagram.com/mimosbyliv/" target="_blank" class="botaoRedesSociais">
           <img class="logoRedesSociais me-2" src="../../assets/icons8-instagram.svg">
           <h2 class="mt-2">Instagram</h2></a>
       </div>
@@ -33,7 +33,7 @@ export default {
 
 <style>
 body{
-  background-color: #EAD5C3;
+  background: url("../../assets/background.png") repeat;
 }
 
 .painel{
