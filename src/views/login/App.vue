@@ -26,6 +26,7 @@
 import Header from "@/components/Header";
 import Cookie from "js-cookie";
 import axios from "axios";
+import {http} from "@/services/Config";
 
 export default {
   name: 'App',
@@ -44,7 +45,7 @@ export default {
   },
   methods: {
     async submit(){
-      axios.post('http://localhost:8081/api/auth', {
+      http.post('auth', {
         nome: this.nome,
         senha: this.senha
       })
@@ -53,7 +54,7 @@ export default {
             window.location.href = 'http://localhost:8080/catalogo-admin'
           })
           .catch(erro => {
-            alert('Dados incorretos. Por favor, tente novamente.')
+            alert(erro.response.data)
           })
     }
   }

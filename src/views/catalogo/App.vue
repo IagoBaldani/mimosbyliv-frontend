@@ -149,7 +149,7 @@ export default {
             this.maisVendidos = response.data
           })
           .catch(erro => {
-            alert(erro.response.data)
+            console.log(erro.response.data)
           })
     },
     async getRoupas(){
@@ -159,7 +159,7 @@ export default {
             this.roupas = response.data
           })
           .catch(erro => {
-            alert(erro.response.data)
+            console.log(erro.response.data)
           })
     },
     async getPrendedores(){
@@ -169,7 +169,7 @@ export default {
             this.prendedores = response.data
           })
           .catch(erro => {
-            alert(erro.response.data)
+            console.log(erro.response.data)
           })
     },
     async getAcessorios(){
@@ -179,7 +179,7 @@ export default {
             this.acessorios = response.data
           })
           .catch(erro => {
-            alert(erro.response.data)
+            console.log(erro.response.data)
           })
     }
   }
