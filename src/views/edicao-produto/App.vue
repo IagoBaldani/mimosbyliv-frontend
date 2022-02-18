@@ -87,8 +87,10 @@ export default {
     return{
       id:'',
       produto:{
-        id:'',
-        nome:''
+        categoria: {
+          id:'',
+          nome:''
+        }
       },
       produtoForm:{
         preco:'',
