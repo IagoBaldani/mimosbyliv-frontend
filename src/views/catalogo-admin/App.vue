@@ -156,8 +156,8 @@ export default {
       acessorios: []
     }
   },
-  beforeMount() {
-    Funcoes.verificaToken();
+  async beforeMount() {
+    await Funcoes.verificaToken();
 
     this.getMaisVendidos()
     this.getRoupas()

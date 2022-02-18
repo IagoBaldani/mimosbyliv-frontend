@@ -102,11 +102,11 @@ export default {
       }
     }
   },
-  beforeMount() {
-    Funcoes.verificaToken()
+  async beforeMount() {
+    await Funcoes.verificaToken()
     const dadosUrl = Funcoes.pegaDadosUrl()
 
-    this.getProduto(dadosUrl.id)
+    await this.getProduto(dadosUrl.id)
   },
   mounted() {
     this.selecionaOption()
