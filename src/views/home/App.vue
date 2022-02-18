@@ -17,7 +17,11 @@
       </div>
     </div>
   </div>
-
+  <div class="footer d-flex justify-content-center align-items-center">
+    <a href="https://portfolio-iagobaldani.vercel.app/">
+      <img class="logoIb" src="../../assets/logoIB.png" alt="Logo IagoWebDeveloper" target="_blank">
+    </a>
+  </div>
 </template>
 
 <script>
@@ -34,6 +38,10 @@ export default {
 <style>
 body{
   background: url("../../assets/background.png") repeat;
+}
+
+.container-fluid{
+  height: 100vh;
 }
 
 .painel{
@@ -94,6 +102,17 @@ body{
 .logoRedesSociais{
   height: 10vh;
 }
+
+.footer{
+  background-color: #F0E3D8;
+  width: 100%;
+}
+
+.logoIb{
+  height: 30px;
+  margin: 10px;
+}
+
 
 @media (max-width: 1200px) {
   .painel{
