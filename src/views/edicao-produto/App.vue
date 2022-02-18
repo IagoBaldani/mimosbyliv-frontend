@@ -93,7 +93,7 @@ export default {
       produtoForm:{
         preco:'',
         categoria: '',
-        tamanhos:'',
+        tamanho:'',
         urlDaImagem:'',
         maisVendidos: '',
         descricao: ''
@@ -113,7 +113,7 @@ export default {
     pegaDados(){
       this.produtoForm.preco = document.getElementById('preco').value
       this.produtoForm.categoria = document.getElementById('categoria').value
-      this.produtoForm.tamanhos = this.concatenaTamanhos()
+      this.produtoForm.tamanho = this.concatenaTamanhos()
       this.produtoForm.urlDaImagem = document.getElementById('urlDaImagem').value
       this.produtoForm.maisVendidos = this.formataMaisVendidos()
       this.produtoForm.descricao = document.getElementById('descricao').value
