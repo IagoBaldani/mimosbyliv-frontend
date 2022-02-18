@@ -93,7 +93,7 @@ export default {
       produtoForm:{
         preco:'',
         categoria: '',
-        tamanhos:'',
+        tamanho:'',
         urlDaImagem:'',
         maisVendidos: '',
         descricao: ''
@@ -113,7 +113,7 @@ export default {
     pegaDados(){
       this.produtoForm.preco = document.getElementById('preco').value
       this.produtoForm.categoria = document.getElementById('categoria').value
-      this.produtoForm.tamanhos = this.concatenaTamanhos()
+      this.produtoForm.tamanho = this.concatenaTamanhos()
       this.produtoForm.urlDaImagem = document.getElementById('urlDaImagem').value
       this.produtoForm.maisVendidos = this.formataMaisVendidos()
       this.produtoForm.descricao = document.getElementById('descricao').value
@@ -132,10 +132,11 @@ export default {
     async submit(id){
       this.pegaDados()
 
+      console.log(this.produtoForm)
       await http.put(`${id}`, this.produtoForm)
           .then(response => {
             alert("Produto editado com sucesso!")
-            window.location.href = 'https://mimosbyliv.vercel.app/catalogo-admin.html'
+            window.location.href = 'http://localhost:8080/catalogo-admin'
           })
           .catch(erro => {
             alert(erro.response.data)
