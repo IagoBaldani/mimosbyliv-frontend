@@ -4,14 +4,14 @@
       <img class="logo" src="../assets/logo.jpeg">
     </div>
 
-    <a v-if="page === 'home'" href="/login">
+    <a v-if="page === 'home'" href="/login.html">
       <div class="botao d-flex justify-content-evenly">
         <img class="imgBotao" src="../assets/settings_white_24dp.svg">
         <p>GERENCIAR</p>
       </div>
     </a>
 
-    <a v-if="page === 'login'" href="/home">
+    <a v-if="page === 'login'" href="/home.html">
       <div class="botao d-flex justify-content-evenly">
         <img class="imgBotao" src="../assets/arrow_back_white_24dp.svg">
         <p>VOLTAR</p>
@@ -19,13 +19,13 @@
     </a>
 
     <div v-if="page === 'catalogo-admin'" class="botoes d-flex">
-      <a  href="/cadastro-produto">
+      <a  href="/cadastro-produto.html">
         <div class="botao d-flex justify-content-evenly">
           <img class="imgBotao" src="../assets/add_white_24dp.svg">
           <p>ADICIONAR</p>
         </div>
       </a>
-      <a  href="/login">
+      <a  href="/login.html">
         <div class="botao d-flex justify-content-evenly">
           <img class="imgBotao" src="../assets/arrow_back_white_24dp.svg">
           <p>SAIR</p>
@@ -38,7 +38,7 @@
         <img class="imgBotao" src="../assets/delete_white_24dp.svg">
         <p>EXCLUIR</p>
       </div>
-      <a href="/catalogo-admin">
+      <a href="/catalogo-admin.html">
         <div class="botao d-flex justify-content-evenly">
           <img class="imgBotao" src="../assets/arrow_back_white_24dp.svg">
           <p>VOLTAR</p>
@@ -68,7 +68,7 @@ export default {
       await http.delete(`${id}`)
         .then(response =>{
           alert("Produto excluído com sucesso!")
-          window.location.href = 'http://localhost:8080/catalogo-admin'
+          window.location.href = 'https://mimosbyliv.vercel.app/catalogo-admin.html'
         })
         .catch(erro =>{
           alert("Erro na exclusão: " + erro.response.data)

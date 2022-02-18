@@ -11,7 +11,7 @@ export default {
       })
 
       if(this.responseStatus == 'ERRO'){
-        window.location.href = 'http://localhost:8080/login'
+        window.location.href = 'https://mimosbyliv.vercel.app/login.html'
       }
   },
 

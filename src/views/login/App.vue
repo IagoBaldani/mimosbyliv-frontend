@@ -51,7 +51,7 @@ export default {
       })
           .then(response => {
             Cookie.set('api_token', response.data.token)
-            window.location.href = 'http://localhost:8080/catalogo-admin'
+            window.location.href = 'https://mimosbyliv.vercel.app/catalogo-admin.html'
           })
           .catch(erro => {
             alert(erro.response.data)

@@ -23,7 +23,7 @@
               <div class="lower-item-text d-flex">
                 <span class="descricao"> {{ maisVendido.descricao }} </span>
               </div>
-              <a v-bind:href="`/edicao-produto?id=${maisVendido.id}`">
+              <a v-bind:href="`/edicao-produto.html?id=${maisVendido.id}`">
                 <div class="btnEditar d-flex justify-content-center align-items-center mt-2">
                   EDITAR
                 </div>
@@ -56,7 +56,7 @@
               <div class="lower-item-text d-flex">
                 <span class="descricao"> {{ roupa.descricao }} </span>
               </div>
-              <a v-bind:href="`/edicao-produto?id=${roupa.id}`">
+              <a v-bind:href="`/edicao-produto.html?id=${roupa.id}`">
                 <div class="btnEditar d-flex justify-content-center align-items-center mt-2">
                   EDITAR
                 </div>
@@ -89,7 +89,7 @@
               <div class="lower-item-text d-flex">
                 <span class="descricao"> {{ prendedor.descricao }} </span>
               </div>
-              <a v-bind:href="`/edicao-produto?id=${prendedor.id}`">
+              <a v-bind:href="`/edicao-produto.html?id=${prendedor.id}`">
                 <div class="btnEditar d-flex justify-content-center align-items-center mt-2">
                   EDITAR
                 </div>
@@ -122,7 +122,7 @@
               <div class="lower-item-text d-flex">
                 <span class="descricao"> {{ acessorio.descricao }} </span>
               </div>
-              <a v-bind:href="`/edicao-produto?id=${acessorio.id}`">
+              <a v-bind:href="`/edicao-produto.html?id=${acessorio.id}`">
                 <div class="btnEditar d-flex justify-content-center align-items-center mt-2">
                   EDITAR
                 </div>
