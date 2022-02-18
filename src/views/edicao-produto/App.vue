@@ -136,7 +136,7 @@ export default {
       await http.put(`${id}`, this.produtoForm)
           .then(response => {
             alert("Produto editado com sucesso!")
-            window.location.href = 'http://localhost:8080/catalogo-admin'
+            window.location.href = 'https://mimosbyliv.vercel.app/catalogo-admin.html'
           })
           .catch(erro => {
             alert(erro.response.data)
