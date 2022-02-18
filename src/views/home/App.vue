@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <Header page="home"/>
     <div class="painel d-flex justify-content-evenly align-items-center mt-3">
-      <a href="/catalogo.html" class="catalogo">
+      <a href="/catalogo" class="catalogo">
          <img class="logoCatalogo" src="../../assets/local_grocery_store_white_24dp.svg">
          <h1 class="mt-3 txtCatalogo"> IR PARA O CATÁLOGO </h1>
       </a>

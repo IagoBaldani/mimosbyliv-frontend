@@ -104,7 +104,7 @@ export default {
       await http.post(' ', this.produtoForm)
           .then(response => {
             alert("Produto cadastrado com sucesso!")
-            window.location.href = 'https://mimosbyliv.vercel.app/catalogo-admin.html'
+            window.location.href = 'http://localhost:8080/catalogo-admin'
           })
           .catch(erro => {
             alert(erro.response.data)
