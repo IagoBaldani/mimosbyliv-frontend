@@ -3,109 +3,30 @@
     <Header page="login"/>
     <div class="container d-flex justify-content-center align-items-start">
       <div>
-        <div class="titulo"> Mais vendidos </div>
+        <div class="titulo">
+          <span v-if="categoriaDesc === 'maisVendidos'"> Mais vendidos </span>
+          <span v-else-if="categoriaDesc === 'roupas'"> Roupas </span>
+          <span v-else-if="categoriaDesc === 'prendedores'"> Prendedores </span>
+          <span v-else-if="categoriaDesc === 'acessorios'"> Acessorios </span>
+        </div>
         <div class="divisoria mt-2 mb-3"></div>
-        <div v-if="maisVendidos.length > 0" class="item-area">
-          <div class="item d-flex" v-for="maisVendido in maisVendidos" v-bind:key="maisVendido">
+        <div v-if="produtos.length > 0" class="item-area">
+          <div class="item d-flex" v-for="produto in produtos" v-bind:key="produto">
             <div class="item-img">
-              <img class="imagem" :src="maisVendido.urlImagem">
+              <img class="imagem" :src="produto.urlImagem">
             </div>
             <div class="item-text">
               <div class="upper-item-text d-flex">
-                <span class="preco">R$ {{maisVendido.preco}}</span>
-                <span class="status" v-bind:class="maisVendido.status == 'Disponível' ? 'disponivel' : 'esgotado'">
-                  {{maisVendido.status.toUpperCase()}}
+                <span class="preco">R$ {{produto.preco}}</span>
+                <span class="status" v-bind:class="produto.status == 'Disponível' ? 'disponivel' : 'esgotado'">
+                  {{produto.status.toUpperCase()}}
                 </span>
               </div>
               <div class="mid-item-text d-flex">
-                <span class="tamanho">{{maisVendido.tamanhos}}</span>
+                <span class="tamanho">{{produto.tamanhos}}</span>
               </div>
               <div class="lower-item-text d-flex">
-                <span class="descricao"> {{ maisVendido.descricao }} </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div v-else class="semProdutos d-flex">
-          Ops, ainda não há nenhum produto nesta categoria!
-        </div>
-      </div>
-      <div>
-        <div class="titulo"> Roupas </div>
-        <div class="divisoria mt-2 mb-3"></div>
-        <div v-if="roupas.length > 0" class="item-area">
-          <div class="item d-flex" v-for="roupa in roupas" v-bind:key="roupa">
-            <div class="item-img">
-              <img class="imagem" :src="roupa.urlImagem">
-            </div>
-            <div class="item-text">
-              <div class="upper-item-text d-flex">
-                <span class="preco">R$ {{roupa.preco}}</span>
-                <span class="status" v-bind:class="roupa.status == 'Disponível' ? 'disponivel' : 'esgotado'">
-                  {{roupa.status.toUpperCase()}}
-                </span>
-              </div>
-              <div class="mid-item-text d-flex">
-                <span class="tamanho">{{roupa.tamanhos}}</span>
-              </div>
-              <div class="lower-item-text d-flex">
-                <span class="descricao"> {{ roupa.descricao }} </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div v-else class="semProdutos d-flex">
-          Ops, ainda não há nenhum produto nesta categoria!
-        </div>
-      </div>
-      <div>
-        <div class="titulo"> Prendedores </div>
-        <div class="divisoria mt-2 mb-3"></div>
-        <div v-if="prendedores.length > 0" class="item-area">
-          <div class="item d-flex" v-for="prendedor in prendedores" v-bind:key="prendedor">
-            <div class="item-img">
-              <img class="imagem" :src="prendedor.urlImagem">
-            </div>
-            <div class="item-text">
-              <div class="upper-item-text d-flex">
-                <span class="preco">R$ {{prendedor.preco}}</span>
-                <span class="status" v-bind:class="prendedor.status == 'Disponível' ? 'disponivel' : 'esgotado'">
-                  {{prendedor.status.toUpperCase()}}
-                </span>
-              </div>
-              <div class="mid-item-text d-flex">
-                <span class="tamanho">{{prendedor.tamanhos}}</span>
-              </div>
-              <div class="lower-item-text d-flex">
-                <span class="descricao"> {{ prendedor.descricao }} </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div v-else class="semProdutos d-flex">
-          Ops, ainda não há nenhum produto nesta categoria!
-        </div>
-      </div>
-      <div>
-        <div class="titulo"> Acessórios </div>
-        <div class="divisoria mt-2 mb-3"></div>
-        <div v-if="acessorios.length > 0" class="item-area">
-          <div class="item d-flex" v-for="acessorio in acessorios" v-bind:key="acessorio">
-            <div class="item-img">
-              <img class="imagem" :src="acessorio.urlImagem">
-            </div>
-            <div class="item-text">
-              <div class="upper-item-text d-flex">
-                <span class="preco">R$ {{acessorio.preco}}</span>
-                <span class="status" v-bind:class="acessorio.status == 'Disponível' ? 'disponivel' : 'esgotado'">
-                  {{acessorio.status.toUpperCase()}}
-                </span>
-              </div>
-              <div class="mid-item-text d-flex">
-                <span class="tamanho">{{acessorio.tamanhos}}</span>
-              </div>
-              <div class="lower-item-text d-flex">
-                <span class="descricao"> {{ acessorio.descricao }} </span>
+                <span class="descricao"> {{ produto.descricao }} </span>
               </div>
             </div>
           </div>
@@ -116,11 +37,17 @@
       </div>
     </div>
   </div>
+  <div class="footer d-flex justify-content-center align-items-center">
+    <a href="https://portfolio-iagobaldani.vercel.app/">
+      <img class="logoIb" src="../../assets/logoIB.png" alt="Logo IagoWebDeveloper" target="_blank">
+    </a>
+  </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
 import {http} from "@/services/Config";
+import Funcoes from "@/services/Funcoes";
 
 export default {
   name: 'App',
@@ -129,24 +56,37 @@ export default {
   },
   data(){
     return{
-      maisVendidos: [],
-      roupas:[],
-      prendedores: [],
-      acessorios: []
+      categoriaDesc: '',
+      produtos:[]
     }
   },
   beforeMount() {
-    this.getMaisVendidos()
-    this.getRoupas()
-    this.getPrendedores()
-    this.getAcessorios()
+    const dadosUrl = Funcoes.pegaDadosUrl()
+
+    this.categoriaDesc = dadosUrl.categoria
+
+    switch (this.categoriaDesc){
+      case 'maisVendidos':
+        this.getMaisVendidos();
+        break
+      case 'roupas':
+        this.getRoupas();
+        break
+      case 'prendedores':
+        this.getPrendedores();
+        break
+      case 'acessorios':
+        this.getAcessorios();
+        break
+    }
+
   },
   methods: {
     async getMaisVendidos(){
        await http
           .get('produtos/mais-vendidos')
           .then(response => {
-            this.maisVendidos = response.data
+            this.produtos = response.data
           })
           .catch(erro => {
             console.log(erro.response.data)
@@ -156,7 +96,7 @@ export default {
       await http
           .get('produtos/1')
           .then(response => {
-            this.roupas = response.data
+            this.produtos = response.data
           })
           .catch(erro => {
             console.log(erro.response.data)
@@ -166,7 +106,7 @@ export default {
       await http
           .get('produtos/2')
           .then(response => {
-            this.prendedores = response.data
+            this.produtos = response.data
           })
           .catch(erro => {
             console.log(erro.response.data)
@@ -176,7 +116,7 @@ export default {
       await http
           .get('produtos/3')
           .then(response => {
-            this.acessorios = response.data
+            this.produtos = response.data
           })
           .catch(erro => {
             console.log(erro.response.data)
@@ -283,6 +223,16 @@ body{
 
 .esgotado{
   color: #9E2222;
+}
+
+.footer{
+  background-color: #F0E3D8;
+  width: 100%;
+}
+
+.logoIb{
+  height: 30px;
+  margin: 10px;
 }
 
 @media  (max-width: 1200px) {

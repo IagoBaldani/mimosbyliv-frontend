@@ -35,6 +35,12 @@ module.exports= {
             template: 'public/index.html',
             title: 'MimosByLiv - Cadastro de produto',
             chunks: ['chunk-vendors', 'chunk-common', 'cadastro-produto']
+        },
+        'categorias-catalogo': {
+            entry: './src/views/categorias-catalogo/main.js',
+            template: 'public/index.html',
+            title: 'MimosByLiv - Categorias',
+            chunks: ['chunk-vendors', 'chunk-common', 'categorias-catalogo']
         }
     }
 }

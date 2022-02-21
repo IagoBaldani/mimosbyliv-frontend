@@ -11,7 +11,7 @@
       </div>
     </a>
 
-    <a v-if="page === 'login'" href="/home.html">
+    <a v-if="page === 'login'" href="javascript:history.back()">
       <div class="botao d-flex justify-content-evenly">
         <img class="imgBotao" src="../assets/arrow_back_white_24dp.svg">
         <p>VOLTAR</p>
