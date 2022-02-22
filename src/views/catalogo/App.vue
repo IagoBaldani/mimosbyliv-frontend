@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <Header page="login"/>
+    <Header page="catalogo"/>
     <div class="container d-flex justify-content-center align-items-start">
       <div>
         <div class="titulo">
@@ -17,17 +17,22 @@
             </div>
             <div class="item-text">
               <div class="upper-item-text d-flex">
-                <span class="preco">R$ {{produto.preco}}</span>
-                <span class="status" v-bind:class="produto.status == 'Disponível' ? 'disponivel' : 'esgotado'">
-                  {{produto.status.toUpperCase()}}
+                <span class="preco">R$ {{ produto.preco }}</span>
+                <span class="status" v-bind:class="produto.status === 'Disponível' ? 'disponivel' : 'esgotado'">
+                  {{ produto.status.toUpperCase() }}
                 </span>
               </div>
               <div class="mid-item-text d-flex">
-                <span class="tamanho">{{produto.tamanhos}}</span>
+                <span class="tamanho">{{ produto.tamanhos }}</span>
               </div>
               <div class="lower-item-text d-flex">
                 <span class="descricao"> {{ produto.descricao }} </span>
               </div>
+              <a href="" v-if="produto.status === 'Disponível'">
+                <div class="btnEditar d-flex justify-content-center align-items-center mt-2">
+                  ADICIONAR AO CARRINHO
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -48,42 +53,42 @@
 import Header from "@/components/Header";
 import {http} from "@/services/Config";
 import Funcoes from "@/services/Funcoes";
+import Cookie from "js-cookie";
 
 export default {
   name: 'App',
   components: {
     Header
   },
-  data(){
-    return{
+  data() {
+    return {
       categoriaDesc: '',
-      produtos:[]
+      produtos: []
     }
   },
-  beforeMount() {
+  async beforeMount() {
     const dadosUrl = Funcoes.pegaDadosUrl()
 
     this.categoriaDesc = dadosUrl.categoria
 
-    switch (this.categoriaDesc){
+    switch (this.categoriaDesc) {
       case 'maisVendidos':
-        this.getMaisVendidos();
+        await this.getMaisVendidos();
         break
       case 'roupas':
-        this.getRoupas();
+        await this.getRoupas();
         break
       case 'prendedores':
-        this.getPrendedores();
+        await this.getPrendedores();
         break
       case 'acessorios':
-        this.getAcessorios();
+        await this.getAcessorios();
         break
     }
-
   },
   methods: {
-    async getMaisVendidos(){
-       await http
+    async getMaisVendidos() {
+      await http
           .get('produtos/mais-vendidos')
           .then(response => {
             this.produtos = response.data
@@ -92,7 +97,7 @@ export default {
             console.log(erro.response.data)
           })
     },
-    async getRoupas(){
+    async getRoupas() {
       await http
           .get('produtos/1')
           .then(response => {
@@ -102,7 +107,7 @@ export default {
             console.log(erro.response.data)
           })
     },
-    async getPrendedores(){
+    async getPrendedores() {
       await http
           .get('produtos/2')
           .then(response => {
@@ -112,7 +117,7 @@ export default {
             console.log(erro.response.data)
           })
     },
-    async getAcessorios(){
+    async getAcessorios() {
       await http
           .get('produtos/3')
           .then(response => {
@@ -127,11 +132,11 @@ export default {
 </script>
 
 <style>
-body{
+body {
   background: url("../../assets/background.png") repeat;
 }
 
-.container{
+.container {
   max-width: 1200px;
   margin: auto;
   padding-top: 1rem;
@@ -139,27 +144,27 @@ body{
   flex-direction: column;
 }
 
-.item-area{
+.item-area {
   max-width: 1200px;
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
-.titulo{
+.titulo {
   margin-left: 10px;
   font-size: 2em;
   color: #78664C;
   font-weight: bold;
 }
 
-.divisoria{
+.divisoria {
   height: 5px;
   width: 150px;
   background-color: #78664C;
   margin-left: 10px;
 }
 
-.semProdutos{
+.semProdutos {
   padding: 1.5em;
   font-size: 20px;
   margin-left: 10px;
@@ -171,7 +176,7 @@ body{
   box-shadow: 0px 0px 5px #78664C;
 }
 
-.item{
+.item {
   margin: 10px;
   background-color: #fff;
   width: 35vw;
@@ -181,16 +186,16 @@ body{
   box-shadow: 0 0 10px #bab5b5;
 }
 
-.item-img{
+.item-img {
   height: 100%;
 }
 
-.imagem{
+.imagem {
   height: 40vh;
   border-radius: 10px;
 }
 
-.item-text{
+.item-text {
   width: 100%;
   border-radius: 0px 10px 10px 0px;
   display: flex;
@@ -199,67 +204,79 @@ body{
   padding: 10px;
 }
 
-.upper-item-text, .lower-item-text, .mid-item-text{
+.upper-item-text, .lower-item-text, .mid-item-text {
   flex-direction: column;
   align-items: flex-start;
   text-align: start;
 }
 
-.upper-item-text, .mid-item-text{
+.upper-item-text, .mid-item-text {
   font-weight: bold;
 }
 
-.preco, .tamanho{
+.preco, .tamanho {
   font-size: 1.5em;
 }
 
-.status, .descricao{
+.status, .descricao {
   font-size: 0.8em;
 }
 
-.disponivel{
+.disponivel {
   color: #3AD037;
 }
 
-.esgotado{
+.esgotado {
   color: #9E2222;
 }
 
-.footer{
+.footer {
   background-color: #F0E3D8;
   width: 100%;
 }
 
-.logoIb{
+.logoIb {
   height: 30px;
   margin: 10px;
 }
 
-@media  (max-width: 1200px) {
-  .container{
+.btnEditar {
+  padding: 5px;
+  background-color: #DBAD69;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 70%;
+  box-shadow: 0px 0px 2px #838483;
+  transition: all linear 0.2s;
+}
+
+
+@media (max-width: 1200px) {
+  .container {
     max-width: 100vw;
     padding: 0;
   }
 
-  .item-area{
+  .item-area {
     grid-template-columns: 1fr;
     width: 95vw;
   }
 
-  .item{
+  .item {
     width: 100%;
     margin: 0px 0px 10px 0px;
   }
 
-  .imagem{
+  .imagem {
     height: 28vh;
   }
 
-  .preco, .tamanho{
+  .preco, .tamanho {
     font-size: 1.2em;
   }
 
-  .status, .descricao{
+  .status, .descricao {
     font-size: 0.8em;
   }
 }

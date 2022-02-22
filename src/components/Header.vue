@@ -11,7 +11,7 @@
       </div>
     </a>
 
-    <a v-if="page === 'login'" href="javascript:history.back()">
+    <a v-if="page === 'login'" href="/home.html">
       <div class="botao d-flex justify-content-evenly">
         <img class="imgBotao" src="../assets/arrow_back_white_24dp.svg">
         <p>VOLTAR</p>
@@ -39,6 +39,19 @@
         <p>EXCLUIR</p>
       </div>
       <a href="/catalogo-admin.html">
+        <div class="botao d-flex justify-content-evenly">
+          <img class="imgBotao" src="../assets/arrow_back_white_24dp.svg">
+          <p>VOLTAR</p>
+        </div>
+      </a>
+    </div>
+
+    <div v-if="page === 'catalogo'" class="botoes d-flex">
+      <div class="botao d-flex justify-content-evenly">
+        <img class="imgBotao" src="../assets/local_grocery_store_white_24dp.svg">
+        <p>CARRINHO</p>
+      </div>
+      <a href="javascript:history.back()">
         <div class="botao d-flex justify-content-evenly">
           <img class="imgBotao" src="../assets/arrow_back_white_24dp.svg">
           <p>VOLTAR</p>
