@@ -28,11 +28,11 @@
               <div class="lower-item-text d-flex">
                 <span class="descricao"> {{ produto.descricao }} </span>
               </div>
-              <a href="" v-if="produto.status === 'Disponível'">
-                <div class="btnEditar d-flex justify-content-center align-items-center mt-2">
-                  ADICIONAR AO CARRINHO
-                </div>
-              </a>
+<!--              <a href="" v-if="produto.status === 'Disponível'">-->
+<!--                <div class="btnEditar d-flex justify-content-center align-items-center mt-2">-->
+<!--                  ADICIONAR AO CARRINHO-->
+<!--                </div>-->
+<!--              </a>-->
             </div>
           </div>
         </div>

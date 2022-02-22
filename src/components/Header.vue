@@ -47,10 +47,10 @@
     </div>
 
     <div v-if="page === 'catalogo'" class="botoes d-flex">
-      <div class="botao d-flex justify-content-evenly">
-        <img class="imgBotao" src="../assets/local_grocery_store_white_24dp.svg">
-        <p>CARRINHO</p>
-      </div>
+<!--      <div class="botao d-flex justify-content-evenly">-->
+<!--        <img class="imgBotao" src="../assets/local_grocery_store_white_24dp.svg">-->
+<!--        <p>CARRINHO</p>-->
+<!--      </div>-->
       <a href="javascript:history.back()">
         <div class="botao d-flex justify-content-evenly">
           <img class="imgBotao" src="../assets/arrow_back_white_24dp.svg">
