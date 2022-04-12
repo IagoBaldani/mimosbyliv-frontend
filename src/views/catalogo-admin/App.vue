@@ -32,7 +32,10 @@
           </div>
         </div>
         <div v-else class="semProdutos d-flex">
-          Ops, ainda não há nenhum produto nesta categoria!
+          Carregando produtos, aguarde um instante.
+          <div class="spinner-border mt-3" role="status">
+            <span class="sr-only"></span>
+          </div>
         </div>
       </div>
       <div>
@@ -65,7 +68,10 @@
           </div>
         </div>
         <div v-else class="semProdutos d-flex">
-          Ops, ainda não há nenhum produto nesta categoria!
+          Carregando produtos, aguarde um instante.
+          <div class="spinner-border mt-3" role="status">
+            <span class="sr-only"></span>
+          </div>
         </div>
       </div>
       <div>
@@ -98,7 +104,10 @@
           </div>
         </div>
         <div v-else class="semProdutos d-flex">
-          Ops, ainda não há nenhum produto nesta categoria!
+          Carregando produtos, aguarde um instante.
+          <div class="spinner-border mt-3" role="status">
+            <span class="sr-only"></span>
+          </div>
         </div>
       </div>
       <div>
@@ -233,6 +242,7 @@ body{
   font-size: 20px;
   margin-left: 10px;
   align-items: center;
+  flex-direction: column;
   color: #78664C;
   background-color: #FDF4F5;
   border-radius: 10px;
